@@ -4,15 +4,12 @@ import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.clients.producer.ProducerRecord;
-import org.apache.kafka.common.KafkaException;
 import org.apache.kafka.common.serialization.StringSerializer;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 import java.util.Scanner;
-import java.util.concurrent.TimeoutException;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class TransactionalProducer {
@@ -53,7 +50,7 @@ public class TransactionalProducer {
             String topic = properties.getProperty("topic");
 
             while (true) {
-                System.out.println("Press enter to commit messages or type in a new message:");
+                System.out.println("\nPress enter to commit messages or type in a new message:");
                 String text = scanner.nextLine();
                 logger.info("Last input: " + text);
                 logger.info("Messages in transaction: " + messages_in_transaction);
