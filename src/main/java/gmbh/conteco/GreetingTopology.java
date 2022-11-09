@@ -6,11 +6,8 @@ import org.apache.kafka.streams.Topology;
 import org.apache.kafka.streams.kstream.Consumed;
 import org.apache.kafka.streams.kstream.Produced;
 
-import java.util.logging.Logger;
-
 public class GreetingTopology {
     public static Topology build() {
-        Logger logger = Logger.getLogger("GrettingTopology");
         StreamsBuilder builder = new StreamsBuilder();
 
         builder.stream("persons", Consumed.with(Serdes.Void(), Serdes.String()))
