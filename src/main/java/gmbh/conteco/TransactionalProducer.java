@@ -38,7 +38,7 @@ public class TransactionalProducer {
             try {
                 producer.initTransactions();
             } catch (RuntimeException e) {
-                logger.warning(e.getMessage());
+                logger.warning("Error initializing transaction");
                 throw new RuntimeException(e.getMessage());
             }
 
@@ -64,7 +64,7 @@ public class TransactionalProducer {
                     }
 
                     producer.commitTransaction();
-                    logger.info("transaction commited");
+                    logger.info("transaction committed");
                     producer.beginTransaction();
                     messages_in_transaction = 0;
                     continue;
